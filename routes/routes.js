@@ -3,7 +3,9 @@ var router = express.Router()
 var PersonModel = require('../modules/PersonModel')
 var PersonController =  require('../controllers/PersonController')
 var ProductController = require('../controllers/ProductController')
+var AuthController = require('../controllers/AuthController')
 
+router.use(AuthController.check_token);
 
 router.get('/people', PersonController.all)
 router.get('/people/:text', PersonController.search)
